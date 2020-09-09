@@ -1,6 +1,6 @@
-# calculator
+# calculator_app
 
-Calculator application
+A new Flutter project.
 
 ## Getting Started
 
