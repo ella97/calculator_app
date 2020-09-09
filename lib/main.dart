@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  
   runApp(MyApp());
 }
 
@@ -9,15 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        
-      ),
-      home: MyHomePage(title: 'Simple Calculator'),
-      debugShowCheckedModeBanner:false
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(title: 'Simple Calculator'),
+        debugShowCheckedModeBanner: false);
   }
 }
 
@@ -31,6 +27,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String displayString = '0';
   Widget createRow(String title1, String title2, String title3, String title4) {
     return Expanded(
       child: Row(
@@ -49,8 +46,19 @@ class _MyHomePageState extends State<MyHomePage> {
       child: ButtonTheme(
         height: double.infinity,
         child: OutlineButton(
-          onPressed: null,
-          child: Text(title),
+          onPressed:() => {},
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+          ),
+          highlightedBorderColor: Colors.black,
         ),
       ),
     );
@@ -68,11 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Expanded(
               child: Container(
+                color: Color.fromARGB(10, 0, 0, 0),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Align(
                       alignment: FractionalOffset.bottomRight,
-                      child: Text('0')),
+                      child: Text(
+                        displayString,
+                        style: TextStyle(fontSize: 80),
+                      )),
                 ),
               ),
             ),
